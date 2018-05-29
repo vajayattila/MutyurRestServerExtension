@@ -2,7 +2,7 @@
 JSON rest server extension for Mütyür PHP Framework
 
 # How to setup
-- Clone Mütyür PHP Workframe into actual folder
-```git
-git clone https://github.com/vajayattila/MutyurPHPMVC.git .
-```
+- Download Mütyür PHP Framework this link: https://github.com/vajayattila/MutyurRestServerExtension/archive/master.zip
+- Extract to your folder
+- Clone JSON rest server extension for Mütyür PHP Framework:
+
