@@ -6,7 +6,7 @@ JSON rest server extension for Mütyür PHP Framework
 - Extract files from MutyurPHPMVC-master archive folder to your folder
 - Download JSON rest server extension for Mütyür PHP Framework from this link: https://github.com/vajayattila/MutyurRestServerExtension/archive/master.zip
 - Extract files from MutyurRestServerExtension-master archive folder to your folder. Overwrite defaultcontroller.php and readme.md
-- Start php embed web browser in your folder:
+- Start php embed web server in your folder:
 ```
 php -S 127.0.0.1:8001
 ```
