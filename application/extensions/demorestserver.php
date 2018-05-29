@@ -43,13 +43,13 @@ class demorestserver extends restserver{
     */    
     protected function echo(){
         $echo='';
-		if(isset($this->requestArgs["message"])) {
-			$echo=$this->requestArgs["message"];
-		}
-		$ret=array(
-			'echo' => $echo
-		);
-		$this->response($ret);
+	if(isset($this->requestArgs["message"])) { // check message parameter
+		$echo=$this->requestArgs["message"]; // get message value
+	}
+	$ret=array(
+		'echo' => $echo
+	);
+	$this->response($ret);
     }
 
 }
