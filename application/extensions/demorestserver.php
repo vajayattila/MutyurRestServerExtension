@@ -16,7 +16,7 @@ class demorestserver extends restserver{
     function __construct(){
         parent::__construct();
         // dependency
-		demorestserver::setup_dependencies(
+	    demorestserver::setup_dependencies(
             demorestserver::get_class_name(), 
             demorestserver::get_version(), 
             'extension',
@@ -29,12 +29,12 @@ class demorestserver extends restserver{
         $this->addfunction('POST', 'echo');
     }
 
-	public function get_class_name(){
-		return 'demorestserver';
-	}
+    public function get_class_name(){
+	return 'demorestserver';
+    }
 
-	public function get_version(){
-		return '1.0.0.0';
+    public function get_version(){
+	return '1.0.0.0';
     }
     
     /*
