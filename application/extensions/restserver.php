@@ -8,7 +8,7 @@ if (! defined ( 'mutyurphpmvc_inited' ))
  *  @brief RestFul server extension base class for MutyurPHPMVC. Project home: https://github.com/vajayattila/MutyurRestServer
  *  @author Vajay Attila (vajay.attila@gmail.com)
  *  @copyright MIT License (MIT)
- *  @date 2017.06.12
+ *  @date 2017.06.12-2018.05.29
  *  @version 1.0.0.0
  */
 
