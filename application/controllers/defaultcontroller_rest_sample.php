@@ -16,7 +16,7 @@ class defaultcontroller extends workframe{
 	protected $m_lang;
 	protected $m_model;
 	protected $m_session;
-	protected $restserver; // for rest server	
+	protected $m_restserver; // for rest server	
 	
 	public function __construct(){
 		parent::__construct();
