@@ -112,8 +112,11 @@ class defaultcontroller extends workframe{
 php -S 127.0.0.1:8001
 ```
 then you can test rest server version with GET method. Write to your browser:
-```html
-http://127.0.0.1:8001/service?action=restsrv_getversion
+```php
+http://127.0.0.1:8001/service?action=restsrv_getversion // restsrv_getversion is defined in application/extension/restserver.php
+or
+http://127.0.0.1:8001/service?action=echo&message=Hello%20World // echo is defined in application/extension/demorestserver.php
+
 ```
 if everything is right you will see this output in your browser (raw data):
 ```json
