@@ -131,5 +131,41 @@ or
     "echo": "Hello World"
 }
 ```
+# Test simple field validation
+In the echo method's message field get a regex pattern in the demonstration rest service:
+```php
+    protected function echo(){
+        $return=TRUE;        
+        $echo=$this->getfieldvalue('message', TRUE, '^.{5,20}$'); // Min length is 5, max length is 20, required
+   .
+   .
+   .
+```
+So we can testing wrong cases too. 
+## Testing wrong cases with GET method
+Input:
+```html
+http://127.0.0.1:8001/service?action=echo
+```
+Output:
+```html
+Missing field: message
+```
 
+Input:
+```html
+http://127.0.0.1:8001/service?action=echo&message=1234 <- too short message
+```
+Output:
+```html
+Pattern not match in 'message' field. The value is '1234'. The pattern is '/^.{5,20}$/'
+```
 
+Input:
+```html
+http://127.0.0.1:8001/service?action=echo&message=123456789012345678901 <- too long message
+```
+Output:
+```html
+Pattern not match in 'message' field. The value is '1234'. The pattern is '/^.{5,20}$/'
+```
