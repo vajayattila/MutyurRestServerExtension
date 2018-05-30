@@ -32,7 +32,7 @@ class defaultcontroller extends workframe{
 		$this->m_session=$this->load_extension('sesshandler');
 		$this->m_model=$this->load_model('defaultmodel');
 		$this->m_lang=$this->load_extension('languagehandler');
-		$this->restserver=$this->load_extension('demorestserver');	// for restserver	
+		$this->m_restserver=$this->load_extension('demorestserver');	// for restserver	
 	}
 	
 	public function get_class_name() {
@@ -107,7 +107,7 @@ class defaultcontroller extends workframe{
 			curl -X POST -i 'http://127.0.0.1:8001/service' --data '{"action": "echo","message": "Hello World!"}'
 			
 		*/
-		$this->restserver->execute(); 
+		$this->m_restserver->execute(); 
 	}	
 	
 }
