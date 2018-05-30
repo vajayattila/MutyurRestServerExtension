@@ -27,24 +27,56 @@ $config['routes']=array(
 	'service' => 'defaultcontroller/service', // for rest service		<- new route for the rest service
 );	
 ```
+# Add the service function to defaultcontroller
+In the application/controllers you can see this files:
+- defaultcontroller.php
+- defaultcontroller_rest_sample.php
+Find the service function in defaultcontroller_rest_sample.php and copy it:
+```php
+	.
+	.
+	public function service(){ // for restservice
+		/*
+			Examples: 
+			For GET methods:
+			http://127.0.0.1:8001/service?action=restsrv_getversion
+			http://127.0.0.1:8001/service?action=echo&message=helloworld
 
+			For POST method with curl:
+			curl -X POST -i 'http://127.0.0.1:8001/service' --data '{"action": "restsrv_getversion"}'
+			curl -X POST -i 'http://127.0.0.1:8001/service' --data '{"action": "echo","message": "Hello World!"}'
 
+		*/
+		$this->restserver->execute(); 
+	}
+	.
+	.
+```
+Open the defaultcontroller.php and paste it. Here:
+```php
+class defaultcontroller extends workframe{
+	.
+	.
+	.
+	public function service(){ // for restservice 
+		/*
+			Examples: 
+			For GET methods:
+			http://127.0.0.1:8001/service?action=restsrv_getversion
+			http://127.0.0.1:8001/service?action=echo&message=helloworld
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			For POST method with curl:
+			curl -X POST -i 'http://127.0.0.1:8001/service' --data '{"action": "restsrv_getversion"}'
+			curl -X POST -i 'http://127.0.0.1:8001/service' --data '{"action": "echo","message": "Hello World!"}'
+			
+		*/
+		$this->restserver->execute(); 
+	}	
+	.
+	.
+	.
+}
+```
 # Test it
 - Start php embed web server in your folder:
 ```
