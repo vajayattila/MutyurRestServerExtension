@@ -144,28 +144,142 @@ In the echo method's message field get a regex pattern in the demonstration rest
 So we can testing wrong cases too. 
 ## Testing wrong cases with GET method
 Input:
-```html
+```
 http://127.0.0.1:8001/service?action=echo
 ```
 Output:
-```html
+```
 Missing field: message
 ```
 
 Input:
-```html
+```
 http://127.0.0.1:8001/service?action=echo&message=1234 <- too short message
 ```
 Output:
-```html
+```
 Pattern not match in 'message' field. The value is '1234'. The pattern is '/^.{5,20}$/'
 ```
 
 Input:
-```html
+```
 http://127.0.0.1:8001/service?action=echo&message=123456789012345678901 <- too long message
 ```
 Output:
-```html
+```
 Pattern not match in 'message' field. The value is '1234'. The pattern is '/^.{5,20}$/'
 ```
+## Testing wrong cases with POST method
+You can use the service route also use for the POST methods calling
+```
+http://127.0.0.1:8001/service
+```
+POST request:
+```json
+{
+  "action": "echo",
+  "message": "Hello World",
+  "partners": [
+    {
+      "name": "Vajay Attila"
+    },
+    {
+      "name": "Mütyürke", <- syntax error
+    }
+  ]
+}
+```
+Output:
+```json
+JSON decode status: Syntax error
+```
+POST request:
+```json
+{
+  "action": "echo",
+  "message": "Hello World",
+  "partners": [
+    {
+      "name": "Vajay Attila"
+    },
+    {
+      "namex": "Mütyürke", <- wrong field name
+    }
+  ]
+}
+```
+Output:
+```json
+Missing field: name
+in partners array on index: 1
+```
+POST request:
+```json
+{
+  "action": "echo",
+  "message": "Hello World",
+  "partners": [
+    {
+      "name": "Vajay Attila"
+    },
+    {
+      "name": "Mütyür", <- too short value
+    }
+  ]
+}
+```
+Output:
+```json
+Pattern not match in 'name' field. The value is 'Mütyür'. The pattern is '/^.{10,30}$/'
+in partners array on index: 1
+```
+POST request:
+```json
+{
+  "action": "echo",
+  "message": "Hello World",
+  "partners": [
+    {
+      "name": "Vajay Attila3456789012345678901" <- too long value
+    },
+    {
+      "name": "Mütyürke"
+    }
+  ]
+}
+```
+Output:
+```json
+Pattern not match in 'name' field. The value is 'Vajay Attila3456789012345678901'. The pattern is '/^.{10,30}$/'
+in partners array on index: 0
+```
+The good case finally:
+```json
+{
+  "action": "echo",
+  "message": "Hello World",
+  "partners": [
+    {
+      "name": "Vajay Attila" <- too long value
+    },
+    {
+      "name": "Mütyürke"
+    }
+  ]
+}
+```
+Output:
+```json
+{
+    "echo": "Hello World",
+    "partner": [
+        {
+            "name": "Vajay Attila"
+        },
+        {
+            "name": "M\u00fcty\u00fcrke"
+        }
+    ]
+}
+```
+
