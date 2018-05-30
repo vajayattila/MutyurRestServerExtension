@@ -124,6 +124,12 @@ if everything is right you will see this output in your browser (raw data):
     "name": "demorestserver",
     "version": "1.0.0.0"
 }
+
+or 
+
+{
+    "echo": "Hello World"
+}
 ```
 
 
