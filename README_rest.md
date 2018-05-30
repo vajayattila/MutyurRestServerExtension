@@ -10,6 +10,7 @@ JSON rest server extension for Mütyür PHP Framework
 In the application folder you can see this files:
 - config.php
 - config_rest_sample.php
+
 Find the next line in the confog_rest_sample.php and copy it:
 ```php
 /** @brief routes*/
