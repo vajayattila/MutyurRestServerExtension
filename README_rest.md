@@ -175,7 +175,7 @@ You can use the service route also use for the POST methods calling
 http://127.0.0.1:8001/service
 ```
 POST request:
-```json
+```
 {
   "action": "echo",
   "message": "Hello World",
@@ -190,11 +190,11 @@ POST request:
 }
 ```
 Output:
-```json
+```
 JSON decode status: Syntax error
 ```
 POST request:
-```json
+```
 {
   "action": "echo",
   "message": "Hello World",
@@ -209,12 +209,12 @@ POST request:
 }
 ```
 Output:
-```json
+```
 Missing field: name
 in partners array on index: 1
 ```
 POST request:
-```json
+```
 {
   "action": "echo",
   "message": "Hello World",
@@ -229,12 +229,12 @@ POST request:
 }
 ```
 Output:
-```json
+```
 Pattern not match in 'name' field. The value is 'Mütyür'. The pattern is '/^.{10,30}$/'
 in partners array on index: 1
 ```
 POST request:
-```json
+```
 {
   "action": "echo",
   "message": "Hello World",
@@ -249,12 +249,12 @@ POST request:
 }
 ```
 Output:
-```json
+```
 Pattern not match in 'name' field. The value is 'Vajay Attila3456789012345678901'. The pattern is '/^.{10,30}$/'
 in partners array on index: 0
 ```
 The good case finally:
-```json
+```
 {
   "action": "echo",
   "message": "Hello World",
@@ -269,7 +269,7 @@ The good case finally:
 }
 ```
 Output:
-```json
+```
 {
     "echo": "Hello World",
     "partner": [
