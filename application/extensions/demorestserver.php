@@ -42,14 +42,39 @@ class demorestserver extends restserver{
         POST: curl -X POST -i 'http://127.0.0.1:8001/service' --data '{"action": "echo","message": "Hello World!"}'
     */    
     protected function echo(){
-        $echo='';
-	if(isset($this->requestArgs["message"])) { // check message parameter
-		$echo=$this->requestArgs["message"]; // get message value
-	}
-	$ret=array(
-		'echo' => $echo
-	);
-	$this->response($ret);
+        $return=TRUE;        
+        $echo=$this->getfieldvalue('message', TRUE, '^.{5,20}$'); // Min length is 5, max length is 20, required
+        if(FALSE!==$echo){
+            $ret=array(
+                'echo' => $echo
+            );
+            if($this->fieldisexist('partners')){
+                $partnerecho=array();
+                $partnerarr=$this->getfieldvalue('partners'); // Get partners array
+                foreach($partnerarr as $key => $partner){
+                    $partner_name=$this->getfieldvalue('name', TRUE, '^.{10,30}$', $partner); // min10, max30
+                    if (false!==$partner_name) {
+                        $partnerecho[]=array(
+                            "name" => $partner_name
+                        );
+                    } else {
+                        $return=FALSE;
+                        // in case of an error getparamvalue write error messages to output
+                        echo "in partners array on index: $key\n"; // print additional info
+                    }
+                }
+                if ($return!==false) {
+                    $ret["partner"]=$partnerecho;
+                }
+            }
+            if ($return!==false) {
+                $this->response($ret); // Response
+            }
+        } else {
+            // in case of an error getparamvalue write error messages to output
+            $return=FALSE;
+        }
+        return $return;
     }
 
 }
