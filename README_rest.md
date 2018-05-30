@@ -47,7 +47,7 @@ Find the service function in defaultcontroller_rest_sample.php and copy it:
 			curl -X POST -i 'http://127.0.0.1:8001/service' --data '{"action": "echo","message": "Hello World!"}'
 
 		*/
-		$this->restserver->execute(); 
+		$this->m_restserver->execute(); 
 	}
 	.
 	.
@@ -70,12 +70,40 @@ class defaultcontroller extends workframe{
 			curl -X POST -i 'http://127.0.0.1:8001/service' --data '{"action": "echo","message": "Hello World!"}'
 			
 		*/
-		$this->restserver->execute(); 
+		$this->m_restserver->execute(); 
 	}	
 	.
 	.
 	.
 }
+```
+# Load demorestserver extension 
+Open the defaultcontroller_rest_sample.php. Find and copy the this line:
+```php
+$this->restserver=$this->load_extension('demorestserver');	// for restserver
+```
+Open the defaultcontroller.php and paste it here:
+```php
+	public function __construct(){
+		.
+		.
+		.		
+		$this->m_restserver=$this->load_extension('demorestserver');	// for restserver
+	}
+```
+And define member variable:
+```php
+.
+.
+.
+class defaultcontroller extends workframe{
+	protected $m_lang;
+	protected $m_model;
+	protected $m_session;
+	protected $m_restserver; // for restserver
+.
+.
+.
 ```
 # Test it
 - Start php embed web server in your folder:
