@@ -260,7 +260,7 @@ The good case finally:
   "message": "Hello World",
   "partners": [
     {
-      "name": "Vajay Attila" <- too long value
+      "name": "Vajay Attila"
     },
     {
       "name": "Mütyürke"
