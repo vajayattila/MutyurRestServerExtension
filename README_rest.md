@@ -11,7 +11,7 @@ In the application folder you can see these files:
 - config.php
 - config_rest_sample.php
 
-Find the line below in the confog_rest_sample.php and copy it:
+Find the line below in the config_rest_sample.php and copy it:
 ```php
 /** @brief routes*/
 $config['routes']=array(
