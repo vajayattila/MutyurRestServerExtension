@@ -167,7 +167,7 @@ http://127.0.0.1:8001/service?action=echo&message=123456789012345678901 <- too l
 ```
 Output:
 ```
-Pattern not match in 'message' field. The value is '1234'. The pattern is '/^.{5,20}$/'
+Pattern not match in 'message' field. The value is '123456789012345678901'. The pattern is '/^.{5,20}$/'
 ```
 ## Testing wrong cases with POST method
 You can use the service route also use for the POST methods calling
