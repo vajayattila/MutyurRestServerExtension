@@ -7,11 +7,11 @@ JSON rest server extension for Mütyür PHP Framework
 - Download JSON rest server extension for Mütyür PHP Framework from this link: https://github.com/vajayattila/MutyurRestServerExtension/archive/master.zip
 - Extract files from MutyurRestServerExtension-master archive folder to your folder. Overwrite readme.md file.
 # Setup config.php
-In the application folder you can see this files:
+In the application folder you can see these files:
 - config.php
 - config_rest_sample.php
 
-Find the next line in the confog_rest_sample.php and copy it:
+Find the line below in the config_rest_sample.php and copy it:
 ```php
 /** @brief routes*/
 $config['routes']=array(
@@ -20,7 +20,7 @@ $config['routes']=array(
 	'service' => 'defaultcontroller/service', // for rest service		
 );		
 ```
-Open the config.php and paste this line into the routes block. Here:
+Open the config.php and insert this line into the routes block. Here:
 ```php
 $config['routes']=array(
 	'default' => 'defaultcontroller/index',	
@@ -29,7 +29,7 @@ $config['routes']=array(
 );	
 ```
 # Add the service function to defaultcontroller
-In the application/controllers you can see this files:
+In the application/controllers you can see these files:
 - defaultcontroller.php
 - defaultcontroller_rest_sample.php
 Find the service function in defaultcontroller_rest_sample.php and copy it:
@@ -53,7 +53,7 @@ Find the service function in defaultcontroller_rest_sample.php and copy it:
 	.
 	.
 ```
-Open the defaultcontroller.php and paste it. Here:
+Open the defaultcontroller.php and insert it. Here:
 ```php
 class defaultcontroller extends workframe{
 	.
@@ -79,11 +79,11 @@ class defaultcontroller extends workframe{
 }
 ```
 # Load demorestserver extension 
-Open the defaultcontroller_rest_sample.php. Find and copy the this line:
+Open the defaultcontroller_rest_sample.php. Find and copy this line:
 ```php
 $this->restserver=$this->load_extension('demorestserver');	// for restserver
 ```
-Open the defaultcontroller.php and paste it here:
+Open the defaultcontroller.php and insert it here:
 ```php
 	public function __construct(){
 		.
@@ -260,7 +260,7 @@ The good case finally:
   "message": "Hello World",
   "partners": [
     {
-      "name": "Vajay Attila" <- too long value
+      "name": "Vajay Attila"
     },
     {
       "name": "Mütyürke"
